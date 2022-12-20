@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="09a89bab-a42e-4260-9d82-09c04cf9a9ad">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<parameter name="accountDesc" class="java.lang.String"/>
+	<parameter name="accountName" class="java.lang.String"/>
+	<parameter name="grandTotal" class="java.lang.Double"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="ouCode" class="java.lang.String"/>
+	<parameter name="ouName" class="java.lang.String"/>
+	<field name="bankCode" class="java.lang.String"/>
+	<field name="amount" class="java.lang.Double"/>
+	<title>
+		<band height="107" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="3" y="88" width="257" height="12" uuid="b3cc3d16-39fb-4353-9857-b3216d4eaaa4"/>
+				<text><![CDATA[Berikut adalah detail transaksi pelimpahan:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="10" width="555" height="20" uuid="e175c239-c64a-4b55-b123-800a0157be8a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="33" width="555" height="18" uuid="106352fc-cebf-4b0c-b758-7fc3ff1a000a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ouCode} + " - " + $P{ouName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="68" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="7" width="100" height="13" forecolor="#000000" backcolor="#B3ABAB" uuid="fbd8020a-12cb-4c7c-8bce-70222b2c0b95"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Penerima:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="4" y="24" width="273" height="15" uuid="22f28fa0-95b3-4859-b685-cd2e571b7bed"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{accountName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="42" width="276" height="17" uuid="ea9b1798-0d49-4b10-a55b-1a48c8bef707"/>
+				<textFieldExpression><![CDATA[$P{accountDesc}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30">
+			<staticText>
+				<reportElement x="0" y="0" width="278" height="30" uuid="32f0c70a-adb7-439d-87ca-2536f47ea282">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3ad10d49-415d-4e4a-84b8-dd2350082ea9"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="0" width="277" height="30" uuid="daea5dc3-2c7e-4640-8144-90649dc08bd7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5ddb0da-bad0-4c7c-b9d7-a0750ac5ae76"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nominal (Rp.)]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<textField>
+				<reportElement x="0" y="0" width="278" height="17" uuid="7933d427-4350-4c30-a19a-aabf18f9a21e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3ad10d49-415d-4e4a-84b8-dd2350082ea9"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="5">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{bankCode}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="278" y="0" width="277" height="17" uuid="ba1e2552-03b0-4ba7-8d2c-9fe5b1738c66">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5ddb0da-bad0-4c7c-b9d7-a0750ac5ae76"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="0" rightPadding="5">
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="47">
+			<textField pattern="#,##0">
+				<reportElement x="278" y="10" width="277" height="20" uuid="0436d1c2-81ee-49db-9f80-1128888dbf35"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{grandTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
